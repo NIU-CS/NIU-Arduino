@@ -1,9 +1,9 @@
 int led_run[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 int sw[4] = {8, 9, 10, 11};
-int led_num = 0;  // led腳位變數
+int led_num = 0;
 #define ON LOW
 #define OFF HIGH
-void led_dark() {  // 將LED全部熄滅
+void led_dark() {
     for (led_num = 0; led_num <= 7; led_num++) digitalWrite(led_num, LOW);
 }
 
@@ -61,9 +61,9 @@ void pili(int x) {
 
 void setup() {
     for (led_num = 0; led_num <= 7; led_num++)
-        pinMode(led_num, OUTPUT);  // 接腳設定輸出
+        pinMode(led_num, OUTPUT);
     for (led_num = 8; led_num <= 11; led_num++) pinMode(led_num, INPUT);
-    led_dark();  // 將LED全部熄滅
+    led_dark();
 }
 
 void loop() {

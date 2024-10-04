@@ -1,8 +1,8 @@
 int led_run[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 int sw[4] = {8, 9, 10, 11};
-int led_num = 0;                         // led腳位變數
-int value = 0;                           // 顯示的數值
-int segPins[7] = {2, 3, 4, 5, 6, 7, 8};  // 七段顯示器的引腳
+int led_num = 0;
+int value = 0;
+int segPins[7] = {0, 1, 2, 3, 4, 5, 6};  // 七段顯示器的引腳
 
 #define ON LOW
 #define OFF HIGH
@@ -28,34 +28,28 @@ const int hexDigits[16][7] = {
 };
 
 void displayNumber(int num) {
-    // 確保數字在 0~15 之間
     num = num & 0xF;
     for (int i = 0; i < 7; i++) {
         digitalWrite(segPins[i], hexDigits[num][i]);
     }
 }
 
-void led_dark() {  // 將LED全部熄滅
+void led_dark() {
     for (led_num = 0; led_num <= 7; led_num++) {
         digitalWrite(led_num, LOW);
     }
 }
 
 void setup() {
-    // 設置 LED 輸出腳位
     for (led_num = 0; led_num <= 7; led_num++)
-        pinMode(led_num, OUTPUT);  // 接腳設定輸出
-
-    // 設置按鈕輸入腳位
+        pinMode(led_num, OUTPUT);
     for (led_num = 8; led_num <= 11; led_num++) pinMode(led_num, INPUT);
-
-    // 設置七段顯示器的腳位
     for (int i = 0; i < 7; i++) {
         pinMode(segPins[i], OUTPUT);
     }
 
-    led_dark();            // 將LED全部熄滅
-    displayNumber(value);  // 初始化顯示器
+    led_dark();
+    displayNumber(value);
 }
 
 void loop() {
@@ -77,6 +71,5 @@ void loop() {
         delay(200);
     }
 
-    // 防止按鈕持續觸發
     delay(100);
 }
