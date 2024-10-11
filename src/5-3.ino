@@ -60,8 +60,7 @@ void pili(int x) {
 }
 
 void setup() {
-    for (led_num = 0; led_num <= 7; led_num++)
-        pinMode(led_num, OUTPUT);
+    for (led_num = 0; led_num <= 7; led_num++) pinMode(led_num, OUTPUT);
     for (led_num = 8; led_num <= 11; led_num++) pinMode(led_num, INPUT);
     led_dark();
 }
