@@ -4,16 +4,16 @@
 #include <IRremote.hpp>
 
 char led_num[10][8] = {
-    {6, 2, 3, 4, 5, 6, 7},    // 0
-    {2, 3, 4},                // 1
-    {5, 2, 3, 5, 6, 8},       // 2
-    {5, 2, 3, 4, 5, 8},       // 3
-    {4, 3, 4, 7, 8},          // 4
-    {5, 2, 4, 5, 7, 8},       // 5
-    {6, 2, 4, 5, 6, 7, 8},    // 6
-    {3, 2, 3, 4},             // 7
-    {7, 2, 3, 4, 5, 6, 7, 8}, // 8
-    {6, 2, 3, 4, 5, 7, 8}     // 9　
+    {6, 2, 3, 4, 5, 6, 7},     // 0
+    {2, 3, 4},                 // 1
+    {5, 2, 3, 5, 6, 8},        // 2
+    {5, 2, 3, 4, 5, 8},        // 3
+    {4, 3, 4, 7, 8},           // 4
+    {5, 2, 4, 5, 7, 8},        // 5
+    {6, 2, 4, 5, 6, 7, 8},     // 6
+    {3, 2, 3, 4},              // 7
+    {7, 2, 3, 4, 5, 6, 7, 8},  // 8
+    {6, 2, 3, 4, 5, 7, 8}      // 9　
 };
 
 void led_dark() {
@@ -24,7 +24,8 @@ void led_dark() {
 
 void setup() {
     Serial.begin(115200);
-  #if defined(AVR_ATmega32U4) || defined(SERIAL_PORT_USBVIRTUAL) || defined(SERIAL_USB) || defined(ARDUINO_attiny3217)
+#if defined(AVR_ATmega32U4) || defined(SERIAL_PORT_USBVIRTUAL) || \
+    defined(SERIAL_USB) || defined(ARDUINO_attiny3217)
     delay(1000);
 #endif
     Serial.println(F("START IRremote example"));
@@ -44,17 +45,39 @@ void loop() {
         Serial.println(IrReceiver.decodedIRData.command, HEX);
         led_dark();
         switch (IrReceiver.decodedIRData.command) {
-            case 0x10: num = 1; break;
-            case 0x11: num = 2; break;
-            case 0x12: num = 3; break;
-            case 0x14: num = 4; break;
-            case 0x15: num = 5; break;
-            case 0x16: num = 6; break;
-            case 0x17: num = 6; break;
-            case 0x18: num = 7; break;
-            case 0x19: num = 8; break;
-            case 0x1A: num = 9; break;
-            case 0xC: num = 0; break;
+            case 0x10:
+                num = 1;
+                break;
+            case 0x11:
+                num = 2;
+                break;
+            case 0x12:
+                num = 3;
+                break;
+            case 0x14:
+                num = 4;
+                break;
+            case 0x15:
+                num = 5;
+                break;
+            case 0x16:
+                num = 6;
+                break;
+            case 0x17:
+                num = 6;
+                break;
+            case 0x18:
+                num = 7;
+                break;
+            case 0x19:
+                num = 8;
+                break;
+            case 0x1A:
+                num = 9;
+                break;
+            case 0xC:
+                num = 0;
+                break;
             default:
                 Serial.println(F("Unknown command"));
                 IrReceiver.resume();

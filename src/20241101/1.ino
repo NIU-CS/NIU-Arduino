@@ -7,18 +7,18 @@ const int minValue = 0;
 int counter = 0;
 
 // 定義七段顯示器段位 (A 到 G 和 DP)
-int segmentPins[] = {4, 5, 6, 7, 8, 9, 10}; // A到G的腳位
+int segmentPins[] = {4, 5, 6, 7, 8, 9, 10};  // A到G的腳位
 int digitValues[10][7] = {
-    {1, 1, 1, 1, 1, 1, 0}, // 0
-    {0, 1, 1, 0, 0, 0, 0}, // 1
-    {1, 1, 0, 1, 1, 0, 1}, // 2
-    {1, 1, 1, 1, 0, 0, 1}, // 3
-    {0, 1, 1, 0, 0, 1, 1}, // 4
-    {1, 0, 1, 1, 0, 1, 1}, // 5
-    {1, 0, 1, 1, 1, 1, 1}, // 6
-    {1, 1, 1, 0, 0, 0, 0}, // 7
-    {1, 1, 1, 1, 1, 1, 1}, // 8
-    {1, 1, 1, 1, 0, 1, 1}  // 9
+    {1, 1, 1, 1, 1, 1, 0},  // 0
+    {0, 1, 1, 0, 0, 0, 0},  // 1
+    {1, 1, 0, 1, 1, 0, 1},  // 2
+    {1, 1, 1, 1, 0, 0, 1},  // 3
+    {0, 1, 1, 0, 0, 1, 1},  // 4
+    {1, 0, 1, 1, 0, 1, 1},  // 5
+    {1, 0, 1, 1, 1, 1, 1},  // 6
+    {1, 1, 1, 0, 0, 0, 0},  // 7
+    {1, 1, 1, 1, 1, 1, 1},  // 8
+    {1, 1, 1, 1, 0, 1, 1}   // 9
 };
 
 // 初始化
@@ -33,8 +33,10 @@ void setup() {
     }
 
     // 設置中斷
-    attachInterrupt(digitalPinToInterrupt(buttonPin1), incrementCounter, FALLING);
-    attachInterrupt(digitalPinToInterrupt(buttonPin2), decrementCounter, FALLING);
+    attachInterrupt(digitalPinToInterrupt(buttonPin1), incrementCounter,
+                    FALLING);
+    attachInterrupt(digitalPinToInterrupt(buttonPin2), decrementCounter,
+                    FALLING);
 
     // 初始顯示
     displayDigit(counter);

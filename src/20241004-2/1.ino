@@ -41,8 +41,7 @@ void led_dark() {
 }
 
 void setup() {
-    for (led_num = 0; led_num <= 7; led_num++)
-        pinMode(led_num, OUTPUT);
+    for (led_num = 0; led_num <= 7; led_num++) pinMode(led_num, OUTPUT);
     for (led_num = 8; led_num <= 11; led_num++) pinMode(led_num, INPUT);
     for (int i = 0; i < 7; i++) {
         pinMode(segPins[i], OUTPUT);

@@ -2,15 +2,15 @@
 #include <Keypad.h>
 
 // 4x4 Keypad
-const byte ROWS = 4; // 4 Rows
-const byte COLS = 4; // 4 Columns
+const byte ROWS = 4;  // 4 Rows
+const byte COLS = 4;  // 4 Columns
 
 // 定義 Keypad 的按鍵 (從左到右 從上到下)
 char keys[ROWS][COLS] = {
-  {'1','2','3','A'},//第一列
-  {'4','5','6','B'},//第二列
-  {'7','8','9','C'},//第三列
-  {'*','0','#','D'} //第四列
+    {'1', '2', '3', 'A'},  // 第一列
+    {'4', '5', '6', 'B'},  // 第二列
+    {'7', '8', '9', 'C'},  // 第三列
+    {'*', '0', '#', 'D'}   // 第四列
 };
 
 // 定義 Keypad 連到 Arduino 的接腳
@@ -22,19 +22,14 @@ byte rowPins[ROWS] = {5, 4, 3, 2};
 byte colPins[COLS] = {9, 8, 7, 6};
 
 // 建立 Keypad 物件
-Keypad keypad = Keypad(
-  makeKeymap(keys), rowPins, colPins, ROWS, COLS
-);
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-void setup(){
-  Serial.begin(9600);
-}
+void setup() { Serial.begin(9600); }
 
-void loop(){
+void loop() {
+    char key = keypad.getKey();  // 讀取 Keypad 的輸入
 
-  char key = keypad.getKey();  // 讀取 Keypad 的輸入
-
-  if (key != NO_KEY){
-    Serial.println(key);
-  }
+    if (key != NO_KEY) {
+        Serial.println(key);
+    }
 }
