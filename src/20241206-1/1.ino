@@ -10,23 +10,23 @@ void setup() {
 void loop() {
     // if button press on A0 is detected
     if (digitalRead(A0) == HIGH) {
-        tone(pwm_pin, 440, 100);  // play tone 57 (A4 = 440 Hz)
+        tone(pwm_pin, 261.626, 100);
     }
     // if button press on A1 is detected
     if (digitalRead(A1) == HIGH) {
-        tone(pwm_pin, 494, 100);  // play tone 59 (B4 = 494 Hz)
+        tone(pwm_pin, 293.665, 100);
     }
     // if button press on A2 is detected
     if (digitalRead(A2) == HIGH) {
-        tone(pwm_pin, 523, 100);  // play tone 60 (C5 = 523 Hz)
+        tone(pwm_pin, 329.628, 100);
     }
     // if button press on A3 is detected
     if (digitalRead(A3) == HIGH) {
-        tone(pwm_pin, 587, 100);  // play tone 62 (D5 = 587 Hz)
+        tone(pwm_pin, 349.228, 100);
     }
     // if button press on A4 is detected
     if (digitalRead(A4) == HIGH) {
-        tone(pwm_pin, 659, 100);  // play tone 64 (E5 = 659 Hz)
+        tone(pwm_pin, 391.995, 100);
     }
-    delay(10);  // Delay a little bit to improve simulation performance
+    delay(100);  // Delay a little bit to improve simulation performance
 }
